@@ -3,6 +3,7 @@ package com.theladders.solid.isp.oldjob;
 import java.util.Date;
 import java.util.List;
 
+import com.theladders.solid.isp.oldjob.interfaces.JobCommon;
 import com.theladders.solid.isp.oldjob.stubs.Discipline;
 import com.theladders.solid.isp.oldjob.stubs.Experience;
 import com.theladders.solid.isp.oldjob.stubs.Industry;
@@ -12,25 +13,35 @@ public abstract class JobImpl implements JobCommon
 {
   private String                   company;
   private Integer                  companySize;
+
   private String                   compensation;
   private String                   compensationBonus;
   private String                   compensationOther;
   private String                   compensationSalary;
+
   private List<Discipline>         disciplines;
   private Date                     entryDate;
   private Experience               experience;
   private Industry                 industry;
   private String                   location;
+
   private int                      oldJobId           = 0;
+
   private Date                     publicationDate;
+
   private Region                   region;
+
   private String                   reportsTo;
+
   private int                      subscriberId       = 0;
+
   private String                   title;
+
   private boolean                  anonymous          = false;
   private boolean                  confidential       = false;
   private boolean                  exclusive          = false;
   private boolean                  reimbursable       = false;
+
   private Date                     updateTime         = null;
 
   public String getCompany()

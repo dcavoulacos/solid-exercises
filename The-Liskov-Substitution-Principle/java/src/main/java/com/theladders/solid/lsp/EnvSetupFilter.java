@@ -91,9 +91,9 @@ public class EnvSetupFilter
       keyMap = new HashMap<>(insecurePropMap);
     }
 
-    Environment dynamicEnv = new DynamicEnvironment(baseEnv, keyMap);
+    DynamicEnvironment dynamicEnv = new DynamicEnvironment(baseEnv, keyMap);
 
-    new SiteConfiguration().seedEnvironment(dynamicEnv);
+    new SiteConfiguration().seedEnvironment(dynamicEnv.base);
 
     // Adds /member to site URLs if the user is logged in.
     if (loggedInUser)
@@ -103,6 +103,6 @@ public class EnvSetupFilter
       dynamicEnv.put("secureHome", dynamicEnv.get("secureHome") + SiteConfiguration.MEMBER_PATH_PREFIX);
     }
 
-    return dynamicEnv;
+    return dynamicEnv.base;
   }
 }

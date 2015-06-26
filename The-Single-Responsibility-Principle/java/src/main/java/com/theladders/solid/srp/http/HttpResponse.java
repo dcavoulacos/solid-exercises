@@ -1,6 +1,6 @@
 package com.theladders.solid.srp.http;
 
-import com.theladders.solid.srp.Result;
+import com.theladders.solid.srp.result.Result;
 
 public class HttpResponse
 {

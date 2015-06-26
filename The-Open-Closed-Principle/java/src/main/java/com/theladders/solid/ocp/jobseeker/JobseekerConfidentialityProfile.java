@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.theladders.solid.ocp.resume.ConfidentialPhrase;
-import com.theladders.solid.ocp.resume.ConfidentialPhraseCategory;
+import com.theladders.solid.ocp.resume.confidentialphrase.ConfidentialPhrase;
 
 public class JobseekerConfidentialityProfile
 {
@@ -16,11 +15,24 @@ public class JobseekerConfidentialityProfile
     confidentialityProfile = new HashMap<>();
   }
 
-  public boolean resetConfidentialFlagsForCategory(ConfidentialPhraseCategory category)
+  +
+  public boolean resetAllConfidentialFlags() {
+    boolean isChanged = false;
+    for (Map.Entry<String, List<ConfidentialPhrase>> entry : confidentialityProfile.entrySet()) {
+      List<ConfidentialPhrase> category = entry.getValue();
+      isChanged = resetConfidentialFlagsFor(category) || isChanged;
+    }
+    return isChanged;
+  }
+
+//  private boolean resetConfidentialFlagsForCollection() {
+//
+//  }
+
+  private boolean resetConfidentialFlagsFor(List<ConfidentialPhrase> phrases)
   {
     boolean isChanged = false;
 
-    List<ConfidentialPhrase> phrases = this.getConfidentialPhrases(category);
     if (phrases != null)
     {
       for (ConfidentialPhrase phrase : phrases)
@@ -34,10 +46,5 @@ public class JobseekerConfidentialityProfile
     }
 
     return isChanged;
-  }
-
-  private List<ConfidentialPhrase> getConfidentialPhrases(ConfidentialPhraseCategory category)
-  {
-    return confidentialityProfile.get(category.name());
   }
 }

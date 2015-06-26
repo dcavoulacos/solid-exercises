@@ -4,9 +4,9 @@ require.config({
         jquery: "lib/jquery-2.1.1", 
         underscore: "lib/underscore", 
         backbone: "lib/backbone",
-        "backbone-relational": "lib/backbone-relational",
+        //"backbone-relational": "lib/backbone-relational",
         mustache: "lib/mustache",
-        jasmine: "lib/jasmine"
+        //jasmine: "lib/jasmine"
     }
 });
 

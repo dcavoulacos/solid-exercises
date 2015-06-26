@@ -1,4 +1,4 @@
-package com.theladders.solid.srp;
+package com.theladders.solid.srp.result;
 
 import java.util.List;
 import java.util.Map;

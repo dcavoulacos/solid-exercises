@@ -8,7 +8,7 @@ public class Resume
   {
     if (resumeName == null || resumeName.equals(""))
     {
-      throw new NullPointerException("bad resume name");
+      new NullResume();
     }
 
     this.resumeName = resumeName;
@@ -41,5 +41,19 @@ public class Resume
     else if (!resumeName.equals(other.resumeName))
       return false;
     return true;
+  }
+
+  public static class NullResume extends Resume
+  {
+    public NullResume()
+    {
+      super("");
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+      return false;
+    }
   }
 }

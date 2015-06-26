@@ -1,5 +1,6 @@
 package com.theladders.solid.srp.resume;
 
+import com.theladders.solid.srp.http.HttpRequest;
 import com.theladders.solid.srp.jobseeker.Jobseeker;
 
 public class MyResumeManager
@@ -11,7 +12,16 @@ public class MyResumeManager
     this.repository = repository;
   }
 
-  public void saveAsActive(Jobseeker jobseeker,
+//  public Resume saveNewOrRetrieveExistingResume(ResumeManager resumeManager,
+//                                                String newResumeFileName,
+//                                                Jobseeker jobseeker)
+//  {
+//    Resume resume;
+//
+//    return resume;
+//  }
+
+  private void saveAsActive(Jobseeker jobseeker,
                            Resume resume)
   {
     repository.makeActive(jobseeker.getId(), resume);
